@@ -278,6 +278,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\ApplicationUserManager.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbonnementController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExempleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -286,14 +287,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICarteRepository.cs" />
+    <Compile Include="Migrations\201608290759450_init.cs" />
+    <Compile Include="Migrations\201608290759450_init.Designer.cs">
+      <DependentUpon>201608290759450_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AbonnementViewModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarteModels.cs" />
+    <Compile Include="Models\AbonnementModels.cs" />
+    <Compile Include="Models\HomeViewModels.cs" />
+    <Compile Include="Models\TarifModels.cs" />
     <Compile Include="Models\TicketViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RoleModels.cs" />
     <Compile Include="Models\TicketModels.cs" />
+    <Compile Include="Models\TypeAbonnementModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CarteRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -318,8 +330,9 @@
     <Content Include="Views\Exemple\Default.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Ticket\Create.cshtml" />
+    <Content Include="Views\Ticket\Acheter.cshtml" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="Views\Abonnement\Souscrire.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -329,6 +342,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608290759450_init.resx">
+      <DependentUpon>201608290759450_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

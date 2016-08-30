@@ -1,5 +1,41 @@
-﻿@{
-    ViewBag.Title = "Index";
-    ViewBag.Description = "Home Page";
+﻿@model ManageSub.Models.HomeViewModels
+@{
+    ViewBag.Title = "Résumé";
+    ViewBag.Description = "Résumé des tickets et abonnements présents sur votre carte";
 }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        Nombre de ticket restant
+                </div>
+                <div class="box-body">
+                    <p>
+                        Il vous reste <b>@Model.nbTicket</b> tickets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Nombre d'abonnements auquels vous avez souscris: @Model.nbAbo
+            </div>
+            <div class="box-body">
+                <h5>Liste de vos abonnements:</h5>
+                    @foreach (var item in Model.intituleList)
+                    {
+                        <p>
+                            @item
+                        </p>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
+
 

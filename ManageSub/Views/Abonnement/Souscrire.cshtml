@@ -1,0 +1,57 @@
+﻿@model ManageSub.Models.AbonnementViewModels
+
+@{
+    ViewBag.Title = "Souscrire";
+}
+@foreach (var item in Model.TypeAbo)
+{
+    using (Html.BeginForm("Souscrire", "Abonnement", new { nameOfType = item.Intitule }, FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header">
+                        <h3 class="box-title">Abonnement @Html.DisplayFor(modelItem => item.Intitule)</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Condition de souscription:
+                            </div>
+                            <div class="col-md-6">
+                                @Html.DisplayName(item.Conditon)
+                            </div>
+                            <input type="submit" value="Souscrire" class="btn btn-default col-md-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+@foreach (var item in Model.TypeAboPossede)
+{
+    using (Html.BeginForm("Supprimer", "Abonnement", new { nameOfType = item.Intitule }, FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header">
+                        <h3 class="box-title">Abonnement possédé: @Html.DisplayFor(modelItem => item.Intitule)</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                Condition de souscription:
+                            </div>
+                            <div class="col-md-6">
+                                @Html.DisplayName(item.Conditon)
+                            </div>
+                            <input type="submit" value="Désabonner" class="btn btn-default col-md-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

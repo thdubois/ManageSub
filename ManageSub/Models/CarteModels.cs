@@ -11,7 +11,10 @@ namespace ManageSub.Models
     {
         public int Id { get; set; }
         public DateTime dateCreation { get; set; }
+        public int IdentityModelsID { get; set; }
+
         public virtual IdentityModels IdentityModels { get; set; }
         public virtual ICollection<TicketModels> TicketModels { get; set; }
+        public virtual ICollection<AbonnementModels> AbonnementsModels { get; set; }
     }
 }

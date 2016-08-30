@@ -2,6 +2,7 @@
 using ManageSub.DAL;
 using ManageSub.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
@@ -125,16 +126,17 @@ namespace ManageSub.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
+                    var userStore = new UserStore<IdentityModels>(db);
+                    var userManager = new UserManager<IdentityModels>(userStore);
                     CarteModels carte = new CarteModels { };
                     carte.dateCreation = DateTime.Today;
                     var user = new IdentityModels { UserName = model.Email, Email = model.Email };
                     user.CarteModels.Add(carte);
                     var result = await UserManager.CreateAsync(user, model.Password);
+                    userManager.AddToRole(user.Id, "user");
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
                         // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
                         // Envoyer un message électronique avec ce lien
                         // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

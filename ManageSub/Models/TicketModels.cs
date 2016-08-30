@@ -7,7 +7,11 @@ namespace ManageSub.Models
 {
     public class TicketModels
     {
-        public int TicketModelsID { get; set; }
+        public int Id { get; set; }
+        public int CarteModelsID { get; set; }
+        public int TarifModelsID { get; set; }
+
+        public virtual TarifModels TarifModels{ get; set; }
         public virtual CarteModels CarteModels { get; set; }
     }
 }

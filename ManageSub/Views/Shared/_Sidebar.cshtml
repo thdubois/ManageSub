@@ -15,11 +15,13 @@
         @* BEGIN Menu *@
         <ul class="sidebar-menu">
             <li class="header">Menu</li>
-            <!--<li class="active"><a href="#"><i class="fa fa-rss"></i> <span>Abonnement</span></a></li>-->
-            <li class="active"><a href="#"><i class="fa fa-tachometer"></i> <span>Résumé</span></a></li>
-            <li> @Html.ActionLink(" S'abonner", "Index", "Home", null, new {@class="fa fa-rss" })</li>
-            <li><a href="#"><i class="glyphicon glyphicon-repeat"></i> <span>Recharger</span></a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-stats"></i> <span>Statistique</span></a></li>
+            <li><a href="@Url.Action("Index","Home")" class="active glyphicon glyphicon-dashboard"> <span>Résumé</span></a></li>
+            <li><a href="@Url.Action("Souscrire","Abonnement")" class="glyphicon glyphicon-flash"> <span>Abonnement</span></a></li>
+            <li><a href="@Url.Action("Acheter","Ticket")" class="glyphicon glyphicon-repeat"> <span>Ticket</span></a></li>
+            @if (User.IsInRole("admin"))
+            {
+                <li><a href="@Url.Action("Stat","Statistique")" class="glyphicon glyphicon-stats"> <span>Statistique</span></a></li>
+            }
             <!--<li class="treeview">
                 <a href="#">
                     <i class="fa fa-link"></i> <span>Multilevel</span>
